@@ -1,0 +1,22 @@
+{
+  "i5": [
+    { "id": "FP1", "sequence": "TATAGCCT" },
+    { "id": "FP2", "sequence": "ATAGAGGC" },
+    { "id": "FP3", "sequence": "CCTATCCT" },
+    { "id": "FP4", "sequence": "GGCTCTGA" },
+    { "id": "FP5", "sequence": "AGGCGAAG" },
+    { "id": "FP6", "sequence": "TAATCTTA" },
+    { "id": "FP7", "sequence": "CAGGACGT" },
+    { "id": "FP8", "sequence": "GTACTGAC" }
+  ],
+  "i7": [
+    { "id": "RP1", "sequence": "ATTACTCG" },
+    { "id": "RP2", "sequence": "TCCGGAGA" },
+    { "id": "RP3", "sequence": "CGCTCATT" },
+    { "id": "RP4", "sequence": "GAGATTCC" },
+    { "id": "RP5", "sequence": "ATTCAGAA" },
+    { "id": "RP6", "sequence": "GAATTCGT" },
+    { "id": "RP7", "sequence": "CTGAAGCT" },
+    { "id": "RP8", "sequence": "TAATGCGC" }
+  ]
+}
