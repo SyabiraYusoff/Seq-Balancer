@@ -110,34 +110,62 @@ function PrimerTable({ primers, label }) {
             </table>
 
             {/* Analysis */}
-            {selected.length > 0 && (
-                <div style={{ marginTop: '20px' }}>
-                    <h4>{label} Multi-Sequence Analysis</h4>
-                    <table border="1" cellPadding="6" style={{ borderCollapse: 'collapse', width: 'auto', minWidth: '600px', tableLayout: 'auto' }}>
-                        <thead>
-                            <tr style={{ backgroundColor: '#f0f0f0' }}>
-                                <th>Pos</th><th>A</th><th>T</th><th>C</th><th>G</th>
-                                <th>Green</th><th>Blue</th><th>Balance</th><th>Unique</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {analyze(selected).map((pos) => (
-                                <tr key={pos.position} style={{ backgroundColor: getRowColor(pos.colourBalance) }}>
-                                    <td>{pos.position}</td>
-                                    <td>{pos.counts.A}</td>
-                                    <td>{pos.counts.T}</td>
-                                    <td>{pos.counts.C}</td>
-                                    <td>{pos.counts.G}</td>
-                                    <td>{pos.green}</td>
-                                    <td>{pos.blue}</td>
-                                    <td>{pos.colourBalance}</td>
-                                    <td>{pos.uniqueBaseCount}</td>
+            {selected.length > 0 && (() => {
+                const analysis = analyze(selected);
+                const hasNoSignal = analysis.some(pos => pos.colourBalance === 'No signal');
+                const allGreenOrBalanced = analysis.every(pos =>
+                    pos.colourBalance === 'Green Dominant' || pos.colourBalance === 'Balanced'
+                );
+                return (
+                    <div style={{ marginTop: '20px' }}>
+                        <h4>{label} Colour Balance Analysis</h4>
+                        {hasNoSignal && (
+                            <div style={{
+                                backgroundColor: '#f8d7da',
+                                color: '#721c24',
+                                padding: '10px',
+                                borderRadius: '4px',
+                                marginBottom: '10px',
+                                border: '1px solid #f5c6cb'
+                            }}>
+                                ⚠️ Please select different primers: at least one position has <b>No signal</b>.
+                            </div>
+                        )}
+                        {allGreenOrBalanced && !hasNoSignal && (
+                            <div style={{
+                                backgroundColor: '#d4edda',
+                                color: '#155724',
+                                padding: '10px',
+                                borderRadius: '4px',
+                                marginBottom: '10px',
+                                border: '1px solid #c3e6cb'
+                            }}>
+                                ✅ All positions are Green Dominant or Balanced. You can proceed.
+                            </div>
+                        )}
+                        <table border="1" cellPadding="6" style={{ borderCollapse: 'collapse', width: 'auto', minWidth: '600px', tableLayout: 'auto' }}>
+                            <thead>
+                                <tr style={{ backgroundColor: '#f0f0f0' }}>
+                                    <th>Bp</th><th>A</th><th>T</th><th>C</th><th>G</th>
+                                    <th>Balance</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            )}
+                            </thead>
+                            <tbody>
+                                {analysis.map((pos) => (
+                                    <tr key={pos.position} style={{ backgroundColor: getRowColor(pos.colourBalance) }}>
+                                        <td>{pos.position}</td>
+                                        <td>{pos.counts.A}</td>
+                                        <td>{pos.counts.T}</td>
+                                        <td>{pos.counts.C}</td>
+                                        <td>{pos.counts.G}</td>
+                                        <td>{pos.colourBalance}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                );
+            })()}
         </div>
     );
 }

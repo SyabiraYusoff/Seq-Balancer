@@ -39,7 +39,12 @@ function App() {
         background: '#fff',
         minWidth: 350
       }}>
-        <h1>Index Colour Balance Check</h1>
+        <h1>BD Rhapsody&trade; Dual Index Check </h1>
+        <p>Instructions: <ol>
+          <li>Select your Indexing Kit.</li>
+          <li>Select more than one indexing primer to analyse the colour balance.
+            </li>
+            <li>Repeat the process for each lane on NovaSeqX sequencer.</li></ol></p>
         <div style={{ marginBottom: '20px' }}>
           {tabs.map((tab) => (
             <button
