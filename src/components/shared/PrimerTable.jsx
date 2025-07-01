@@ -110,7 +110,7 @@ function PrimerTable({ primers, label }) {
             </table>
 
             {/* Analysis */}
-            {selected.length > 0 && (() => {
+            {selected.length > 1 && (() => {
                 const analysis = analyze(selected);
                 const hasNoSignal = analysis.some(pos => pos.colourBalance === 'No signal');
                 const allGreenOrBalanced = analysis.every(pos =>
