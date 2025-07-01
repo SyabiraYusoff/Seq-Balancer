@@ -78,7 +78,7 @@ function PrimerTable({ primers, label }) {
                 <thead>
                     <tr style={{ backgroundColor: '#f0f0f0' }}>
                         <th>Select</th>
-                        <th>Sample ID</th>
+                        <th>{label} Primer</th>
                         <th>{label} Sequence</th>
                     </tr>
                 </thead>
