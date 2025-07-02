@@ -40,11 +40,11 @@ function App() {
         minWidth: 350
       }}>
         <h1>BD Rhapsody&trade; Dual Index Check </h1>
-        <p>Instructions: <ol>
+        <ol>
           <li>Select your Indexing Kit.</li>
-          <li>Select more than one indexing primer to analyse the colour balance.
-            </li>
-            <li>Repeat the process for each lane on NovaSeqX sequencer.</li></ol></p>
+          <li>Select more than one indexing primer to analyse the colour balance.</li>
+          <li>Repeat the process for each lane on NovaSeqX sequencer.</li>
+        </ol>
         <div style={{ marginBottom: '20px' }}>
           {tabs.map((tab) => (
             <button

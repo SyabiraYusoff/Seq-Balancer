@@ -1,35 +1,42 @@
 import { useState } from 'react';
 
-function getRowColor(balance) {
-  switch (balance) {
-    case 'Green Dominant': return '#d4edda';   // light green
-    case 'Balanced':       return '#a8f0a5';   // bright green
-    case 'Blue Dominant':  return '#cce5ff';   // light blue
-    case 'No signal':      return '#f8d7da';   // light red
-    default:               return 'white';
-  }
+// Checks if a primer id is compatible with the first/only selected primer using the compatibility map
+export function isCompatible(id, selected, compatibilityMap) {
+    if (selected.length !== 1) return false; // Only apply for first/only selected
+    const selectedId = selected[0];
+    return compatibilityMap[selectedId]?.includes(id);
 }
 
-function PrimerTable({ primers, label }) {
+// Returns a color for the row based on the color balance result
+function getRowColor(balance) {
+    switch (balance) {
+        case 'Green Dominant': return '#d4edda';   // light green
+        case 'Balanced': return '#a8f0a5';   // bright green
+        case 'Blue Dominant': return '#cce5ff';   // light blue
+        case 'No signal': return '#f8d7da';   // light red
+        default: return 'white';
+    }
+}
+
+// Main component for displaying and analyzing primers
+function PrimerTable({ primers, label, compatibilityMap }) {
+    // State to track selected primer sequences
     const [selected, setSelected] = useState([]);
 
+    // Analyze the color balance for the selected sequences
     const analyze = (seqs) => {
         const stats = [];
-        // Loop through each position in the sequences
-        // All sequences are of the same length (8 bases)
+        // Loop through each position in the sequences (assume 8 bases)
         for (let pos = 0; pos < 8; pos++) {
             const bases = seqs.map(seq => seq[pos]);
-            // initialize counts for each base
-            // A = blue, T = green, C = green, G = blue
-            // T and C are considered green, A is blue
-            // G is not counted in the color balance
+            // Count each base at this position
             const counts = { A: 0, T: 0, C: 0, G: 0 };
             bases.forEach(b => { if (counts[b] !== undefined) counts[b]++; });
-            const green = counts.T + counts.C;
-            const blue = counts.A;
+            const green = counts.T + counts.C; // T and C are green
+            const blue = counts.A; // A is blue
             const unique = Object.values(counts).filter(c => c > 0).length;
 
-            // Add the logic of the color balance
+            // Determine color balance for this position
             let colourBalance;
             if (counts.T === 0 && counts.C === 0 && (counts.A > 0 || counts.G > 0)) {
                 colourBalance = 'No signal';
@@ -41,6 +48,7 @@ function PrimerTable({ primers, label }) {
                 colourBalance = 'Blue Dominant';
             }
 
+            // Store stats for this position
             stats.push({
                 position: pos + 1,
                 counts, green, blue,
@@ -51,9 +59,22 @@ function PrimerTable({ primers, label }) {
         return stats;
     };
 
+    function getRowColorForTable(primer, selected, compatibilityMap) {
+        // Selected: blue
+        if (selected.includes(primer.sequence)) return '#b3e5fc';
+        // Compatible: green
+        if (isCompatible(primer.id, selected.map(seq => {
+            // Find the primer object for this sequence
+            const found = primers.find(p => p.sequence === seq);
+            return found ? found.id : null;
+        }).filter(Boolean), compatibilityMap)) return '#d4edda';
+        // Default: white
+        return 'white';
+    }
+
     return (
         <div>
-            {/* Header + Button */}
+            {/* Header and clear button */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <h3>{label}</h3>
                 {selected.length > 0 && (
@@ -73,7 +94,7 @@ function PrimerTable({ primers, label }) {
                 )}
             </div>
 
-            {/* Table */}
+            {/* Primer table with selection and compatibility highlighting */}
             <table border="1" cellPadding="10" style={{ borderCollapse: 'collapse', width: '600px', tableLayout: 'fixed' }}>
                 <thead>
                     <tr style={{ backgroundColor: '#f0f0f0' }}>
@@ -84,10 +105,15 @@ function PrimerTable({ primers, label }) {
                 </thead>
                 <tbody>
                     {primers.map((primer) => {
-                        const seq = primer.sequence; // Assuming each primer has a 'sequence' property
+                        const seq = primer.sequence;
                         const isChecked = selected.includes(seq);
                         return (
-                            <tr key={primer.id + '-' + label}>
+                            <tr
+                                key={primer.id + '-' + label}
+                                style={{
+                                    backgroundColor: getRowColorForTable(primer, selected, compatibilityMap)
+                                }}
+                            >
                                 <td>
                                     <input
                                         type="checkbox"
@@ -109,7 +135,7 @@ function PrimerTable({ primers, label }) {
                 </tbody>
             </table>
 
-            {/* Analysis */}
+            {/* Color balance analysis for selected primers */}
             {selected.length > 1 && (() => {
                 const analysis = analyze(selected);
                 const hasNoSignal = analysis.some(pos => pos.colourBalance === 'No signal');
