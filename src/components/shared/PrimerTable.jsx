@@ -140,7 +140,7 @@ function PrimerTable({ primers, label, compatibilityMap }) {
                 const analysis = analyze(selected);
                 const hasNoSignal = analysis.some(pos => pos.colourBalance === 'No signal');
                 const allGreenOrBalanced = analysis.every(pos =>
-                    pos.colourBalance === 'Green Dominant' || pos.colourBalance === 'Balanced'
+                    pos.colourBalance === 'Green Dominant' || pos.colourBalance === 'Balanced' || pos.colourBalance === 'Blue Dominant'
                 );
                 return (
                     <div style={{ marginTop: '20px' }}>
@@ -166,7 +166,7 @@ function PrimerTable({ primers, label, compatibilityMap }) {
                                 marginBottom: '10px',
                                 border: '1px solid #c3e6cb'
                             }}>
-                                ✅ All positions are Green Dominant or Balanced. You can proceed.
+                                ✅ All positions are Green/Blue Dominant or Balanced. You can proceed.
                             </div>
                         )}
                         <table border="1" cellPadding="6" style={{ borderCollapse: 'collapse', width: 'auto', minWidth: '600px', tableLayout: 'auto' }}>
