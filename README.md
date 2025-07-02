@@ -1,5 +1,7 @@
 # Seq-Balancer: BD Rhapsody™ Dual Index Check (NovaSeqX Leap Chemistry)
 
+[Access the web tool here](https://syabirayusoff.github.io/Seq-Balancer/)
+
 This tool helps you check and balance dual indexing primers for BD Rhapsody™ kits, specifically for use with **NovaSeqX Leap chemistry**. It ensures optimal colour balance and compatibility of selected i5 and i7 primers, reducing the risk of sequencing failures due to unbalanced or incompatible index combinations.
 
 ## Features
