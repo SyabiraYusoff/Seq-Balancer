@@ -1,17 +1,26 @@
 import { useState } from 'react';
 import DualIndex from './components/OmicsOne-DualIndex';
-import DualIndexXT from './components/OmicsOne-DualIndexXT';
-
+import DualIndexXTB from './components/OmicsOne-DualIndexXT-B';
+import DualIndexXTA from './components/OmicsOne-DualIndexXT-A';
+import BaseCDNA from './components/Base-cDNA';
+import ATACindex from './components/ATAC-Index';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('BD OMICS-One Dual Index Kit');
+  const [activeTab, setActiveTab] = useState('BD® OMICS-One Dual Index Kit');
 
-  const tabs = ['BD OMICS-One Dual Index Kit', 'BD OMICS-One Dual Index XT Kit'];
+  const tabs = ['Base Amplification kit',
+    'BD® OMICS-One Dual Index Kit', 
+    'BD® OMICS-One Dual Index XT Kit A', 
+    'BD® OMICS-One Dual Index XT Kit B',
+    'ATAC-Index'];
 
-  const renderSequencer = () => {
+  const renderTabs = () => {
     switch (activeTab) {
-      case 'BD OMICS-One Dual Index Kit': return <DualIndex />;
-      case 'BD OMICS-One Dual Index XT Kit': return <DualIndexXT />;
+      case 'Base Amplification kit': return <BaseCDNA />;
+      case 'BD® OMICS-One Dual Index Kit': return <DualIndex />;
+      case 'BD® OMICS-One Dual Index XT Kit A': return <DualIndexXTA />;
+      case 'BD® OMICS-One Dual Index XT Kit B': return <DualIndexXTB />;
+      case 'ATAC-Index': return <ATACindex />;
       default: return <div>Unknown Sequencer</div>;
     }
   };
@@ -40,11 +49,6 @@ function App() {
         minWidth: 350
       }}>
         <h1>BD Rhapsody&trade; Dual Index Check </h1>
-        <ol>
-          <li>Select your Indexing Kit.</li>
-          <li>Select more than one indexing primer to analyse the colour balance.</li>
-          <li>Repeat the process for each lane on NovaSeqX sequencer.</li>
-        </ol>
         <div style={{ marginBottom: '20px' }}>
           {tabs.map((tab) => (
             <button
@@ -64,7 +68,7 @@ function App() {
             </button>
           ))}
         </div>
-        {renderSequencer()}
+        {renderTabs()}
       </div>
     </div>
   );

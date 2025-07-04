@@ -1,22 +1,22 @@
 {
   "i5": [
-    { "id": "FP1", "sequence": "TATAGCCT" },
-    { "id": "FP2", "sequence": "ATAGAGGC" },
-    { "id": "FP3", "sequence": "CCTATCCT" },
-    { "id": "FP4", "sequence": "GGCTCTGA" },
-    { "id": "FP5", "sequence": "AGGCGAAG" },
-    { "id": "FP6", "sequence": "TAATCTTA" },
-    { "id": "FP7", "sequence": "CAGGACGT" },
-    { "id": "FP8", "sequence": "GTACTGAC" }
+    { "id": "FP1", "sequence": "TATAGCCT", "name": "TruSeq D501" },
+    { "id": "FP2", "sequence": "ATAGAGGC", "name": "TruSeq D502" },
+    { "id": "FP3", "sequence": "CCTATCCT", "name": "TruSeq D503" },
+    { "id": "FP4", "sequence": "GGCTCTGA", "name": "TruSeq D504" },
+    { "id": "FP5", "sequence": "AGGCGAAG", "name": "TruSeq D505" },
+    { "id": "FP6", "sequence": "TAATCTTA", "name": "TruSeq D506" },
+    { "id": "FP7", "sequence": "CAGGACGT", "name": "TruSeq D507" },
+    { "id": "FP8", "sequence": "GTACTGAC", "name": "TruSeq D508" }
   ],
   "i7": [
-    { "id": "RP1", "sequence": "ATTACTCG" },
-    { "id": "RP2", "sequence": "TCCGGAGA" },
-    { "id": "RP3", "sequence": "CGCTCATT" },
-    { "id": "RP4", "sequence": "GAGATTCC" },
-    { "id": "RP5", "sequence": "ATTCAGAA" },
-    { "id": "RP6", "sequence": "GAATTCGT" },
-    { "id": "RP7", "sequence": "CTGAAGCT" },
-    { "id": "RP8", "sequence": "TAATGCGC" }
+    { "id": "RP1", "sequence": "ATTACTCG", "name": "TruSeq D701" },
+    { "id": "RP2", "sequence": "TCCGGAGA", "name": "TruSeq D702" },
+    { "id": "RP3", "sequence": "CGCTCATT", "name": "TruSeq D703" },
+    { "id": "RP4", "sequence": "GAGATTCC", "name": "TruSeq D704" },
+    { "id": "RP5", "sequence": "ATTCAGAA", "name": "TruSeq D705" },
+    { "id": "RP6", "sequence": "GAATTCGT", "name": "TruSeq D706" },
+    { "id": "RP7", "sequence": "CTGAAGCT", "name": "TruSeq D707" },
+    { "id": "RP8", "sequence": "TAATGCGC", "name": "TruSeq D708" }
   ]
 }

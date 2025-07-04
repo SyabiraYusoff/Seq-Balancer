@@ -1,8 +1,8 @@
-import sequence from '../data/OmicsOne-DualIndexXT.json';
-import compatibilityData from '../data/CompatiblePrimersXT.json';
+import sequence from '../data/OmicsOne-DualIndexXT-A.json';
+import compatibilityData from '../data/CompatiblePrimersXT-A.json';
 import PrimerTable from './shared/PrimerTable';
 
-export default function dualIndexXT() {
+export default function dualIndexXTA() {
   return (
     <div style={{ display: 'flex', gap: 32, justifyContent: 'center', alignItems: 'flex-start', width: '100%' }}>
       <div style={{ flex: 1 }}>

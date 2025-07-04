@@ -1,0 +1,22 @@
+{
+  "i5": [
+    { "id": "FP1", "sequence": "CTCTCTAT", "name":"Nextera N502" },
+    { "id": "FP2", "sequence": "TATCCTCT", "name":"Nextera N503" },
+    { "id": "FP3", "sequence": "GTAAGGAG", "name":"Nextera N505" },
+    { "id": "FP4", "sequence": "ACTGCATA", "name":"Nextera N506" },
+    { "id": "FP5", "sequence": "AAGGAGTA", "name":"Nextera N507" },
+    { "id": "FP6", "sequence": "CTAAGCCT", "name":"Nextera N508" },
+    { "id": "FP7", "sequence": "CGTCTAAT", "name":"Nextera N510" },
+    { "id": "FP8", "sequence": "TCTCTCCG", "name":"Nextera N511" }
+  ],
+  "i7": [
+    { "id": "RP1", "sequence": "TCGCCTTA", "name":"Nextera N701" },
+    { "id": "RP2", "sequence": "CTAGTACG", "name":"Nextera N702" },
+    { "id": "RP3", "sequence": "TTCTGCCT", "name":"Nextera N703" },
+    { "id": "RP4", "sequence": "GCTCAGGA", "name":"Nextera N704" },
+    { "id": "RP5", "sequence": "AGGAGTCC", "name":"Nextera N705" },
+    { "id": "RP6", "sequence": "CATGCCTA", "name":"Nextera N706" },
+    { "id": "RP7", "sequence": "GTAGAGAG", "name":"Nextera N707" },
+    { "id": "RP8", "sequence": "CAGCCTCG", "name":"Nextera N710" }
+  ]
+}

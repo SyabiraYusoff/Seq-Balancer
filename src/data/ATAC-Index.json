@@ -1,0 +1,12 @@
+{
+"i7": [
+    { "id": "RP1", "sequence": "TAAGGCGA", "name": "TruSeq D701" },
+    { "id": "RP2", "sequence": "CGTACTAG", "name": "TruSeq D702" },
+    { "id": "RP3", "sequence": "AGGCAGAA", "name": "TruSeq D703" },
+    { "id": "RP4", "sequence": "TCCTGAGC", "name": "TruSeq D704" },
+    { "id": "RP5", "sequence": "GGACTCCT", "name": "TruSeq D705" },
+    { "id": "RP6", "sequence": "TAGGCATG", "name": "TruSeq D706" },
+    { "id": "RP7", "sequence": "CTCTCTAC", "name": "TruSeq D707" },
+    { "id": "RP8", "sequence": "CAGAGAGG", "name": "TruSeq D708" }
+]
+}

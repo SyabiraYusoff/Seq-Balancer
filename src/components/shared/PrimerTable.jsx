@@ -99,7 +99,8 @@ function PrimerTable({ primers, label, compatibilityMap }) {
                 <thead>
                     <tr style={{ backgroundColor: '#f0f0f0' }}>
                         <th>Select</th>
-                        <th>{label} Primer</th>
+                        <th>{label} BD Primer</th>
+                        <th>{label} Series Index</th>
                         <th>{label} Sequence</th>
                     </tr>
                 </thead>
@@ -128,6 +129,7 @@ function PrimerTable({ primers, label, compatibilityMap }) {
                                     />
                                 </td>
                                 <td>{primer.id}</td>
+                                <td>{primer.name}</td>
                                 <td>{seq}</td>
                             </tr>
                         );
