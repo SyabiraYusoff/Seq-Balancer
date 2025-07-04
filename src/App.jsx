@@ -46,7 +46,8 @@ function App() {
         boxShadow: '0 2px 16px rgba(0,0,0,0.08)',
         borderRadius: 16,
         background: '#fff',
-        minWidth: 350
+        minWidth: 350,
+        maxWidth: '80%'
       }}>
         <h1>BD Rhapsody&trade; Dual Index Check </h1>
         <div style={{ marginBottom: '20px' }}>

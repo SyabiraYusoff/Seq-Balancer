@@ -1,5 +1,6 @@
 export default function BaseCDNA() {
     return (
+        <div>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', width: '100%' }}>
         <div style={{ flex: 1 }}>
                 <h3>Recommendation</h3>
@@ -66,6 +67,7 @@ export default function BaseCDNA() {
                For more information on the BD Rhapsody&trade; Library Amplifications Kits, you can refer to the 
                     <a href="https://www.bdbiosciences.com/en-us/products/instruments/bd-rhapsody" target="_blank" rel="noopener noreferrer">BD Biosciences website</a>.
           
+            </div>
             </div>
             </div>
     );
