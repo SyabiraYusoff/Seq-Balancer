@@ -2,25 +2,26 @@ import { useState } from 'react';
 import DualIndex from './components/OmicsOne-DualIndex';
 import DualIndexXTB from './components/OmicsOne-DualIndexXT-B';
 import DualIndexXTA from './components/OmicsOne-DualIndexXT-A';
-import BaseCDNA from './components/Base-cDNA';
+import BaseCDNAAmp from './components/base_cDNA_Amp';
 import ATACindex from './components/ATAC-Index';
 
 function App() {
   const [activeTab, setActiveTab] = useState('BD® OMICS-One Dual Index Kit');
 
-  const tabs = ['Base Amplification kit',
+  const tabs = [
     'BD® OMICS-One Dual Index Kit', 
     'BD® OMICS-One Dual Index XT Kit A', 
     'BD® OMICS-One Dual Index XT Kit B',
-    'ATAC-Index'];
+    'Base Amplification Kit',
+    'Base ATAC-Index Kit'];
 
   const renderTabs = () => {
     switch (activeTab) {
-      case 'Base Amplification kit': return <BaseCDNA />;
       case 'BD® OMICS-One Dual Index Kit': return <DualIndex />;
       case 'BD® OMICS-One Dual Index XT Kit A': return <DualIndexXTA />;
       case 'BD® OMICS-One Dual Index XT Kit B': return <DualIndexXTB />;
-      case 'ATAC-Index': return <ATACindex />;
+      case 'Base Amplification Kit': return <BaseCDNAAmp />;
+      case 'Base ATAC-Index Kit': return <ATACindex />;
       default: return <div>Unknown Sequencer</div>;
     }
   };
@@ -30,6 +31,7 @@ function App() {
       minHeight: '100vh',
       minWidth: '100vw',
       display: 'flex',
+      flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
       background: '#fff',
@@ -49,7 +51,7 @@ function App() {
         minWidth: 350,
         maxWidth: '80%'
       }}>
-        <h1>BD Rhapsody&trade; Dual Index Check </h1>
+        <h1>BD Rhapsody&trade; NovaSeqX Color Balance Checker </h1>
         <div style={{ marginBottom: '20px' }}>
           {tabs.map((tab) => (
             <button

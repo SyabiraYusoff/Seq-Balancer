@@ -19,24 +19,47 @@ function getRowColor(balance) {
 }
 
 // Main component for displaying and analyzing primers
-function PrimerTable({ primers, label, compatibilityMap }) {
+export default function PrimerTable({
+    primers,
+    label,
+    compatibilityMap,
+    onSelectionChange,
+    selected, // If provided, this is a Controlled compponent prop.
+    showAnalysis = true, // Show the color balance analysis section by default
+    showTable = true
+}) {
     // State to track selected primer sequences
-    const [selected, setSelected] = useState([]);
+    // If selected is provided, use it (controlled). Otherwise, use internal state (uncontrolled).
+    const [internalSelected, setInternalSelected] = useState([]);
+    const isControlled = selected !== undefined;
+    const selection = isControlled ? selected : internalSelected;
+
+    // Handle checkbox change
+    const handleChange = (seq, checked) => {
+        let newSelected;
+        if (checked) {
+            newSelected = [...selection, seq];
+        } else {
+            newSelected = selection.filter(s => s !== seq);
+        }
+        if (isControlled) {
+            onSelectionChange && onSelectionChange(newSelected);
+        } else {
+            setInternalSelected(newSelected);
+            onSelectionChange && onSelectionChange(newSelected);
+        }
+    };
 
     // Analyze the color balance for the selected sequences
     const analyze = (seqs) => {
         const stats = [];
-        // Loop through each position in the sequences (assume 8 bases)
         for (let pos = 0; pos < 8; pos++) {
             const bases = seqs.map(seq => seq[pos]);
-            // Count each base at this position
             const counts = { A: 0, T: 0, C: 0, G: 0 };
             bases.forEach(b => { if (counts[b] !== undefined) counts[b]++; });
-            const green = counts.T + counts.C; // T and C are green
-            const blue = counts.A; // A is blue
+            const green = counts.T + counts.C;
+            const blue = counts.A;
             const unique = Object.values(counts).filter(c => c > 0).length;
-
-            // Determine color balance for this position
             let colourBalance;
             if (counts.T === 0 && counts.C === 0 && (counts.A > 0 || counts.G > 0)) {
                 colourBalance = 'No signal';
@@ -47,39 +70,44 @@ function PrimerTable({ primers, label, compatibilityMap }) {
             } else {
                 colourBalance = 'Blue Dominant';
             }
-
-            // Store stats for this position
-            stats.push({
-                position: pos + 1,
-                counts, green, blue,
-                colourBalance,
-                uniqueBaseCount: unique
-            });
+            stats.push({ position: pos + 1, counts, green, blue, colourBalance, uniqueBaseCount: unique });
         }
         return stats;
     };
 
-    function getRowColorForTable(primer, selected, compatibilityMap) {
+    function getRowColorForTable(primer, selection, compatibilityMap) {
         // Selected: blue
-        if (selected.includes(primer.sequence)) return '#b3e5fc';
+        if (selection.includes(primer.sequence)) return '#b3e5fc';
         // Compatible: green
-        if (isCompatible(primer.id, selected.map(seq => {
-            // Find the primer object for this sequence
-            const found = primers.find(p => p.sequence === seq);
-            return found ? found.id : null;
-        }).filter(Boolean), compatibilityMap)) return '#d4edda';
+        if (isCompatible(
+            primer.id,
+            selection.map(seq => {
+                const found = primers.find(p => p.sequence === seq);
+                return found ? found.id : null;
+            }).filter(Boolean),
+            compatibilityMap
+        )) return '#d4edda';
         // Default: white
         return 'white';
     }
 
+    // Render
     return (
         <div>
-            {/* Header and clear button */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <h3>{label}</h3>
-                {selected.length > 0 && (
+                <h3>{label === 'i5' && `${label} Forward Index primer`}
+                    {label === 'i7' && `${label} Reverse Index primer`}</h3>
+
+                {selection.length > 0 && (
                     <button
-                        onClick={() => setSelected([])}
+                        onClick={() => {
+                            if (isControlled) {
+                                onSelectionChange && onSelectionChange([]);
+                            } else {
+                                setInternalSelected([]);
+                                onSelectionChange && onSelectionChange([]);
+                            }
+                        }}
                         style={{
                             padding: '6px 12px',
                             backgroundColor: '#dc3545',
@@ -95,7 +123,7 @@ function PrimerTable({ primers, label, compatibilityMap }) {
             </div>
 
             {/* Primer table with selection and compatibility highlighting */}
-            <table border="1" cellPadding="10" style={{ borderCollapse: 'collapse', width: '600px', tableLayout: 'fixed' }}>
+            {showTable && (<table border="1" cellPadding="10" style={{ borderCollapse: 'collapse', width: '600px', tableLayout: 'fixed' }}>
                 <thead>
                     <tr style={{ backgroundColor: '#f0f0f0' }}>
                         <th>Select</th>
@@ -107,25 +135,19 @@ function PrimerTable({ primers, label, compatibilityMap }) {
                 <tbody>
                     {primers.map((primer) => {
                         const seq = primer.sequence;
-                        const isChecked = selected.includes(seq);
+                        const isChecked = selection.includes(seq);
                         return (
                             <tr
                                 key={primer.id + '-' + label}
                                 style={{
-                                    backgroundColor: getRowColorForTable(primer, selected, compatibilityMap)
+                                    backgroundColor: getRowColorForTable(primer, selection, compatibilityMap)
                                 }}
                             >
                                 <td>
                                     <input
                                         type="checkbox"
                                         checked={isChecked}
-                                        onChange={(e) => {
-                                            if (e.target.checked) {
-                                                setSelected([...selected, seq]);
-                                            } else {
-                                                setSelected(selected.filter(s => s !== seq));
-                                            }
-                                        }}
+                                        onChange={(e) => handleChange(seq, e.target.checked)}
                                     />
                                 </td>
                                 <td>{primer.id}</td>
@@ -135,11 +157,11 @@ function PrimerTable({ primers, label, compatibilityMap }) {
                         );
                     })}
                 </tbody>
-            </table>
+            </table>)}
 
-            {/* Color balance analysis for selected primers */}
-            {selected.length > 1 && (() => {
-                const analysis = analyze(selected);
+            {/* Analysis table (optional, controlled by showAnalysis) */}
+            {showAnalysis && selection.length > 1 && (() => {
+                const analysis = analyze(selection);
                 const hasNoSignal = analysis.some(pos => pos.colourBalance === 'No signal');
                 const allGreenOrBalanced = analysis.every(pos =>
                     pos.colourBalance === 'Green Dominant' || pos.colourBalance === 'Balanced' || pos.colourBalance === 'Blue Dominant'
@@ -197,5 +219,3 @@ function PrimerTable({ primers, label, compatibilityMap }) {
         </div>
     );
 }
-
-export default PrimerTable;
