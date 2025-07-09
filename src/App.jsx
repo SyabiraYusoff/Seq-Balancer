@@ -131,7 +131,7 @@ export default function App() {
           borderRadius: 16,
           background: '#fff',
           minWidth: 350,
-          maxWidth: '70%',
+          maxWidth: '90%',
           marginBottom:150,
           marginTop: 30
         }}>
