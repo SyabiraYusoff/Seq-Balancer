@@ -9,7 +9,7 @@ export default function dualIndexXTB() {
          <h2 style={{ color: '#007bff', marginBottom: 0 }}>
           BD® OMICS-One Dual Index XT Kit B
       </h2>
-      <p>The indexes can be used to multiplex up to 64 samples in a single run. In combination with BD® OMICS-One Dual Index XT Kit A, it can multiplex up to 128 samples in a single run.
+      <p>The indexes can be used to multiplex up to 64 samples in a single run. <br />In combination with BD® OMICS-One Dual Index XT Kit A, it can multiplex up to 128 samples in a single run.
 
         For <strong>Dual plexity indexing, </strong> Please first select one of the: 
       <ul>

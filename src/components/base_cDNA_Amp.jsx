@@ -55,7 +55,7 @@ export default function BaseCDNAAmp() {
                         <li>BD Rhapsody™ Whole Transcriptome Analysis (WTA) Amplification Kit</li>
                     </ul>
                     <p style={{ marginBottom:0 }}> For <strong>Dual plexity indexing, </strong> Please first select one of the i7 Reverse Index Primer: RP2, RP3, RP4, the next compatible primer will be <span style={{color: 'green'}}>highlighted</span>.</p>
-                    <p style={{ marginBottom:0}}><strong>Need to pool a larger number of libraries?</strong> You can enhance your workflow by integrating indexing with Omics One (available separately). This option allows you to seamlessly select and analyze your desired kit alongside your base kit amplification—making high-throughput sequencing setup more streamlined and efficient.</p>
+                    <p style={{ marginBottom:0}}><strong>Need to pool a larger number of libraries?</strong> You can enhance your workflow by integrating indexing with Omics One (available separately).<br /> This option allows you to seamlessly select and analyze your desired kit alongside your base kit amplification.</p>
             <div style={{ display: 'flex', gap: 32, justifyContent: 'center', alignItems: 'flex-start', width: '100%' }}>
                     <div style={{ flex: 1 }}>
                         <PrimerTable primers={sequence.i5} label="i5" compatibilityMap={compatibilityData.i5} onSelectionChange={setSelectedI5} selected={selectedI5}
