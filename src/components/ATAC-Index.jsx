@@ -6,9 +6,11 @@ export default function dualIndex() {
     return (
     <div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-        <p style={{ fontWeight: 500, color: '#007bff', marginBottom: 0 }}>
-          This is a placeholder
-      </p>
+        <h2 style={{ color: '#007bff', marginBottom: 0 }}>
+          Base ATAC Amplification Kit
+      </h2>
+      <p style={{ marginBottom:0 }}>The indexes can be used for ATAC library amplifications applications when purchased ATAC assay: BD Rhapsody™ ATAC-Seq Amplification Kit (Cat No 571356). <br />
+      For <strong>Dual plexity indexing, </strong> Please first select one of the i7 Reverse Index Primer: RP4, RP5, RP6, the next compatible primer will be <span style={{color: 'green'}}>highlighted</span>.</p>
       <div style={{ display: 'flex', gap: 32, justifyContent: 'center', alignItems: 'flex-start', width: '100%' }}>
         <div style={{ flex: 1 }}>
           <PrimerTable primers={sequence.i5} label="i5" compatibilityMap={compatibilityData.i5} />

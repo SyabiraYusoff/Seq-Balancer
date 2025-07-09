@@ -46,10 +46,17 @@ export default function BaseCDNAAmp() {
     return (
         <div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                <p style={{ fontWeight: 500, color: '#007bff', marginBottom: 0 }}>
-                    This is a placeholderfor information about the Base Amplification kit.
-                </p>
-                <div style={{ display: 'flex', gap: 32, justifyContent: 'center', alignItems: 'flex-start', width: '100%' }}>
+                <h2 style={{ color: '#007bff', marginBottom: 0 }}>
+                    Base cDNA Amplification Kit
+                    </h2>
+                    <p style={{ marginBottom:0 }}>The indexes can be used for cDNA applications when purchased kits listed below.</p>
+                    <ul style={{ marginTop: 0, paddingLeft: 20, marginBottom:0}}>
+                        <li>BD Rhapsody™ Targeted mRNA and AbSeq Amplification Kit </li>
+                        <li>BD Rhapsody™ Whole Transcriptome Analysis (WTA) Amplification Kit</li>
+                    </ul>
+                    <p style={{ marginBottom:0 }}> For <strong>Dual plexity indexing, </strong> Please first select one of the i7 Reverse Index Primer: RP2, RP3, RP4, the next compatible primer will be <span style={{color: 'green'}}>highlighted</span>.</p>
+                    <p style={{ marginBottom:0}}><strong>Need to pool a larger number of libraries?</strong> You can enhance your workflow by integrating indexing with Omics One (available separately). This option allows you to seamlessly select and analyze your desired kit alongside your base kit amplification—making high-throughput sequencing setup more streamlined and efficient.</p>
+            <div style={{ display: 'flex', gap: 32, justifyContent: 'center', alignItems: 'flex-start', width: '100%' }}>
                     <div style={{ flex: 1 }}>
                         <PrimerTable primers={sequence.i5} label="i5" compatibilityMap={compatibilityData.i5} onSelectionChange={setSelectedI5} selected={selectedI5}
   showAnalysis={!secondary} />

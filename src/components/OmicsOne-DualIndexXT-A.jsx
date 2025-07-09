@@ -6,9 +6,16 @@ export default function dualIndexXTA() {
   return (
     <div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-        <p style={{ fontWeight: 500, color: '#007bff', marginBottom: 0 }}>
-          This is a placeholder
-      </p>
+        <h2 style={{ color: '#007bff', marginBottom: 0 }}>
+          BD® OMICS-One Dual Index XT Kit A
+      </h2>
+      <p>The indexes can be used to multiplex up to 64 samples in a single run. In combination with BD® OMICS-One Dual Index XT Kit B, it can multiplex up to 128 samples in a single run.
+      For <strong>Dual plexity indexing, </strong> Please first select one of the: 
+      <ul>
+        <li>i5 Forward Index Primer: Any primer</li>
+        <li>i7 Reverse Index Primer: RP2, RP3, RP5, RP8</li>
+      </ul>
+      Once selected, the next compatible primer will be <span style={{color: 'green'}}>highlighted</span>.</p>
       <div style={{ display: 'flex', gap: 32, justifyContent: 'center', alignItems: 'flex-start', width: '100%' }}>
         <div style={{ flex: 1 }}>
           <PrimerTable primers={sequence.i5} label="i5" compatibilityMap={compatibilityData.i5} />

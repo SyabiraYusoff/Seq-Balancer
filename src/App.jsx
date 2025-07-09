@@ -37,14 +37,14 @@ export default function App() {
       label: 'Base Amplification Kit',
       catalog: 'Included with BD Rhapsody&trade; assay kits',
       notes: 'This kit provides 1x i5 and 4x i7 primers for cDNA applications',
-      volume: '?? µL',
+      volume: '40 µL Forward i5, 20 µL Reverse i7',
       usage: 'The indexes can be used for cDNA applications.',
     },
     {
-      label: 'Base ATAC-Index Kit',
+      label: 'Base ATAC Amplification Kit',
       catalog: 'Included with BD Rhapsody&trade; ATAC-seq assay kits',
       notes: 'This kit provides 1x i5 and 8x i7 primers for ATAC-seq applications',
-      volume: '?? µL',
+      volume: '65 µL Forward i5, 35 µL Reverse i7',
       usage: 'The indexes can be used for ATAC-seq applications.'
     }
   ];
@@ -53,7 +53,7 @@ export default function App() {
     let message = '';
     if (label === 'Base Amplification Kit') {
       message = 'Base Amplification Kit is selected. Please select i7 primers from the displayed table. ';
-    } else if (label === 'Base ATAC-Index Kit') {
+    } else if (label === 'Base ATAC Amplification Kit') {
       message = 'Base ATAC-Index Kit is selected. Please select i7 primers from the displayed table.';
     } else if (label === 'BD® OMICS-One Dual Index XT Kit A') {
       message = 'BD® OMICS-One Dual Index XT Kit A is selected. Please select i5 and i7 primers from the displayed table.';
@@ -83,7 +83,7 @@ export default function App() {
       case 'BD® OMICS-One Dual Index XT Kit A': return <DualIndexXTA />;
       case 'BD® OMICS-One Dual Index XT Kit B': return <DualIndexXTB />;
       case 'Base Amplification Kit': return <BaseCDNAAmp />;
-      case 'Base ATAC-Index Kit': return <ATACindex />;
+      case 'Base ATAC Amplification Kit': return <ATACindex />;
       default: return <div>Unknown Sequencer</div>;
     }
   };
@@ -131,14 +131,28 @@ export default function App() {
           borderRadius: 16,
           background: '#fff',
           minWidth: 350,
-          maxWidth: '80%'
+          maxWidth: '70%',
+          marginBottom:150,
+          marginTop: 30
         }}>
-          <h1>BD Rhapsody&trade; NovaSeqX Color Balance Checker </h1>
-          <h3>This app helps users ensure color balance when selecting index primers for sequencing on the NovaSeqX system. <br />
-            By combining selected primers, users can analyze and validate sequencing readiness based on colour balance on NovaSeq XLEAP SBS chemistry. <br />
-            Further reading for <a href="https://knowledge.illumina.com/instrumentation/novaseq-x-x-plus/instrumentation-novaseq-x-x-plus-reference_material-list/000008422" target="_blank" rel="noopener noreferrer">XLEAP Index Colour Balance from Illumina</a> here.</h3>
+          <h1 style={{marginBottom:0}}> XLEAP Colour Balance Checker </h1>
+          <h3> For BD Rhapsody&trade; Index Kits </h3>
 
-          <h2 style={{ marginTop: '20px' }}>Instructions</h2>
+          <div style={{ display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'flex-start', 
+            padding: 20 
+            }}>
+          <h2 style={{marginBottom:0}}> Purpose </h2>
+          <h3 style={{ marginTop: '10px', fontWeight: 'normal' }}> This tool assists researchers in maintaining proper color balance when selecting index primers for sequencing on the NovaSeqX system. </h3>
+          
+          <h2 style={{marginBottom:0}}> Functionality </h2>
+          <h3 style={{ marginTop: '10px', fontWeight: 'normal' }}> The tool enables evaluation and validation of sequencing readiness. It specifically checks for compatibility with the color balance requirements of the NovaSeq XLEAP SBS chemistry, helping ensure optimal sequencing performance. </h3>
+
+          <h2 style={{marginBottom:0}}> Disclaimer </h2>
+          <h3 style={{ marginTop: '10px', fontWeight: 'normal' }}> Our recommendation is based on Illumina public website:<a href="https://knowledge.illumina.com/instrumentation/novaseq-x-x-plus/instrumentation-novaseq-x-x-plus-reference_material-list/000008422" target="_blank" rel="noopener noreferrer">XLEAP Index Colour Balance from Illumina</a>  </h3>
+
+          <h2 style={{ marginBottom:0 }}>Instructions</h2>
           <div style={{ marginBottom: '20px' }}>
             <p>Table below describe available kits within BD Rhapsody products with their catalog numbers, volumes, usage, and notes. <br />
               To use the tool: <br />
@@ -151,13 +165,13 @@ export default function App() {
               <li><strong>Use the information</strong> to ensure optimal primer selection for your sequencing needs.</li>
               <li>If you have any questions or need further assistance, please contact your local FAS.</li>
             </ol>
-            <table style={{ borderCollapse: 'collapse', width: '100%', marginTop: '20px' }}>
+            </div>
+            <table style={{ borderCollapse: 'collapse', width: '100%', marginTop: '20px', fontSize: '14px'}}>
               <thead>
                 <tr>
-                  <th style={{ border: '1px solid #ccc', padding: '10px' }}>Index Kits</th>
+                  <th style={{ border: '1px solid #ccc', padding: '10px', backgroundColor: '', color: '#044ED7' }}>Select Your Index Kits</th>
                   <th style={{ border: '1px solid #ccc', padding: '10px' }}>Catalog Number</th>
                   <th style={{ border: '1px solid #ccc', padding: '10px' }}>Volume Per Tube (µL)</th>
-                  <th style={{ border: '1px solid #ccc', padding: '10px' }}>Usage</th>
                   <th style={{ border: '1px solid #ccc', padding: '10px' }}>Notes</th>
                 </tr>
               </thead>
@@ -168,12 +182,15 @@ export default function App() {
                       <button
                         onClick={() => onTabSelect(tab.label)}
                         style={{
-                          padding: '10px 20px',
-                          backgroundColor: activeTab === tab.label ? '#007bff' : '#eee',
+                          padding: '15px 20px',
+                          textAlign: 'center',      /* Horizontal alignment */
+                          verticalAlign: 'middle',  /* Vertical alignment */
+                          backgroundColor: activeTab === tab.label ? '#007bff' :'#eee',
                           color: activeTab === tab.label ? '#fff' : '#000',
                           border: 'none',
                           borderRadius: '5px',
-                          cursor: 'pointer'
+                          cursor: 'pointer',
+                          width: '250px',
                         }}
                       >
                         {tab.label}
@@ -181,12 +198,12 @@ export default function App() {
                     </td>
                     <td style={{ border: '1px solid #ccc', padding: '10px' }}>{tab.catalog}</td>
                     <td style={{ border: '1px solid #ccc', padding: '10px' }}>{tab.volume}</td>
-                    <td style={{ border: '1px solid #ccc', padding: '10px' }}>{tab.usage}</td>
                     <td style={{ border: '1px solid #ccc', padding: '10px' }}>{tab.notes}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
+            
           </div>
           {renderTabs()}
         </div>
