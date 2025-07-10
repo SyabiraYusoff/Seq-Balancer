@@ -36,16 +36,16 @@ export default function App() {
     {
       label: 'Base Amplification Kit',
       catalog: 'Included with BD Rhapsody&trade; assay kits',
-      notes: 'This kit provides 1x i5 and 4x i7 primers for cDNA applications',
+      notes: 'This kit provides 1x i5 and 4x i7 primers for cDNA applications. Not suitable for ATAC library.',
       volume: '40 µL Forward i5, 20 µL Reverse i7',
-      usage: 'The indexes can be used for cDNA applications. Not suitable for ATAC library.',
+      usage: 'The indexes can be used for cDNA applications',
     },
     {
       label: 'Base ATAC Amplification Kit',
       catalog: 'Included with BD Rhapsody&trade; ATAC-seq assay kits',
-      notes: 'This kit provides 1x i5 and 8x i7 primers for ATAC-seq applications',
+      notes: 'This kit provides 1x i5 and 8x i7 primers for ATAC-seq applications. Suitable for ATAC library only.',
       volume: '65 µL Forward Adapter Primer, 35 µL Reverse i7',
-      usage: 'The indexes can be used for ATAC-seq applications. Suitable for ATAC library only.'
+      usage: 'The indexes can be used for ATAC-seq applications. '
     }
   ];
 
