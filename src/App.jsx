@@ -14,21 +14,21 @@ export default function App() {
     {
       label: 'BD® OMICS-One Dual Index Kit',
       catalog: '571899 - Available to Purchase Separately',
-      notes: 'This kit provides 8x i5 and 8x i7 primers from the TruSeq series',
+      notes: 'This kit provides 8x i5 and 8x i7 primers from the TruSeq series. Not suitable for ATAC library.',
       volume: '50 µL',
       usage: 'The indexes can be used to multiplex up to 64 samples in a single run.',
     },
     {
       label: 'BD® OMICS-One Dual Index XT Kit A',
       catalog: '571973 - Available to Purchase Separately',
-      notes: 'This kit provides 8x i5 and 8x i7 primers from the Nextera series',
+      notes: 'This kit provides 8x i5 and 8x i7 primers from the Nextera series. Not suitable for ATAC library.',
       volume: '300 µL',
       usage: 'The indexes can be used to multiplex up to 64 samples in a single run. In combination with BD® OMICS-One Dual Index XT Kit B, it can multiplex up to 128 samples in a single run.',
     },
     {
       label: 'BD® OMICS-One Dual Index XT Kit B',
       catalog: '572304 - Available to Purchase Separately',
-      notes: 'This kit provides 8x i5 and 8x i7 primers from the Nextera series',
+      notes: 'This kit provides 8x i5 and 8x i7 primers from the Nextera series. Not suitable for ATAC library.',
       volume: '300 µL',
       usage: 'The indexes can be used to multiplex up to 64 samples in a single run. In combination with BD® OMICS-One Dual Index XT Kit A, it can multiplex up to 128 samples in a single run.',
 
@@ -38,14 +38,14 @@ export default function App() {
       catalog: 'Included with BD Rhapsody&trade; assay kits',
       notes: 'This kit provides 1x i5 and 4x i7 primers for cDNA applications',
       volume: '40 µL Forward i5, 20 µL Reverse i7',
-      usage: 'The indexes can be used for cDNA applications.',
+      usage: 'The indexes can be used for cDNA applications. Not suitable for ATAC library.',
     },
     {
       label: 'Base ATAC Amplification Kit',
       catalog: 'Included with BD Rhapsody&trade; ATAC-seq assay kits',
       notes: 'This kit provides 1x i5 and 8x i7 primers for ATAC-seq applications',
       volume: '65 µL Forward Adapter Primer, 35 µL Reverse i7',
-      usage: 'The indexes can be used for ATAC-seq applications.'
+      usage: 'The indexes can be used for ATAC-seq applications. Suitable for ATAC library only.'
     }
   ];
 
