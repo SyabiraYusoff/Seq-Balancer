@@ -11,7 +11,7 @@ export default function dualIndexXTB() {
       </h2>
       <p>The indexes can be used to multiplex up to 64 samples in a single run. <br />In combination with BD® OMICS-One Dual Index XT Kit A, it can multiplex up to 128 samples in a single run.
 
-        For <strong>Dual plexity indexing, </strong> Please first select one of the: 
+        For <strong>2-plexy indexing, </strong> Please first select one of the: 
       <ul>
         <li>i5 Forward Index Primer: Any primer</li>
         <li>i7 Reverse Index Primer: RP2, RP3, RP5, RP8</li>

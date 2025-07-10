@@ -1,7 +1,4 @@
 {
-"i5": [
-    { "id": "FP1", "sequence": "????????", "name": "????????" }
-],
 "i7": [
     { "id": "RP1", "sequence": "TAAGGCGA", "name": "TruSeq D701" },
     { "id": "RP2", "sequence": "CGTACTAG", "name": "TruSeq D702" },

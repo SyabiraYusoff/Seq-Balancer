@@ -3,7 +3,7 @@ import DualIndex from './components/OmicsOne-DualIndex';
 import DualIndexXTB from './components/OmicsOne-DualIndexXT-B';
 import DualIndexXTA from './components/OmicsOne-DualIndexXT-A';
 import BaseCDNAAmp from './components/base_cDNA_Amp';
-import ATACindex from './components/ATAC-Index';
+import BaseATAC from './components/base_ATAC_Amp';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('BD® OMICS-One Dual Index Kit');
@@ -44,7 +44,7 @@ export default function App() {
       label: 'Base ATAC Amplification Kit',
       catalog: 'Included with BD Rhapsody&trade; ATAC-seq assay kits',
       notes: 'This kit provides 1x i5 and 8x i7 primers for ATAC-seq applications',
-      volume: '65 µL Forward i5, 35 µL Reverse i7',
+      volume: '65 µL Forward Adapter Primer, 35 µL Reverse i7',
       usage: 'The indexes can be used for ATAC-seq applications.'
     }
   ];
@@ -83,7 +83,7 @@ export default function App() {
       case 'BD® OMICS-One Dual Index XT Kit A': return <DualIndexXTA />;
       case 'BD® OMICS-One Dual Index XT Kit B': return <DualIndexXTB />;
       case 'Base Amplification Kit': return <BaseCDNAAmp />;
-      case 'Base ATAC Amplification Kit': return <ATACindex />;
+      case 'Base ATAC Amplification Kit': return <BaseATAC />;
       default: return <div>Unknown Sequencer</div>;
     }
   };
