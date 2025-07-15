@@ -43,7 +43,7 @@ export default function App() {
     {
       label: 'Base ATAC Amplification Kit',
       catalog: 'Included with BD Rhapsody&trade; ATAC-seq assay kits',
-      notes: 'This kit provides 1x i5 and 8x i7 primers for ATAC-seq applications. Suitable for ATAC library only.',
+      notes: 'This kit provides 1x Forward Adapter primer and 8x i7 primers for ATAC-seq applications. Suitable for ATAC library only.',
       volume: '65 µL Forward Adapter Primer, 35 µL Reverse i7',
       usage: 'The indexes can be used for ATAC-seq applications. '
     }
