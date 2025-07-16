@@ -15,28 +15,28 @@ export default function App() {
     {
       label: 'BD® OMICS-One Dual Index Kit',
       catalog: '571899 - Available to Purchase Separately',
-      notes: 'This kit provides 8x i5 and 8x i7 primers from the TruSeq series. Not suitable for ATAC library.',
+      notes: 'This kit provides 8x i5 and 8x i7 primers from the TruSeq series. Can be used to multiplex up to 64 samples in a single run. Not suitable for ATAC library.',
       volume: '50 µL',
       usage: 'The indexes can be used to multiplex up to 64 samples in a single run.',
-      size: '80 tests',
+      size: '8 - 20 tests/tube',
       link: 'https://www.bdbiosciences.com/content/dam/bdb/product_assets/product_pdf/kitproduct/pdf_1/571899.pdf',
     },
     {
       label: 'BD® OMICS-One Dual Index XT Kit A',
       catalog: '571973 - Available to Purchase Separately',
-      notes: 'This kit provides 8x i5 and 8x i7 primers from the Nextera series. Not suitable for ATAC library.',
+      notes: 'This kit provides 8x i5 and 8x i7 primers from the Nextera series. Can be used to multiplex up to 64 samples in a single run. In combination with BD® OMICS-One Dual Index XT Kit B, it can multiplex up to 128 samples in a single run. Not suitable for ATAC library.',
       volume: '300 µL',
       usage: 'The indexes can be used to multiplex up to 64 samples in a single run. In combination with BD® OMICS-One Dual Index XT Kit B, it can multiplex up to 128 samples in a single run.',
-      size: '48 tests',
+      size: '50 - 150 tests/tube',
       link: 'https://www.bdbiosciences.com/content/dam/bdb/product_assets/product_pdf/kitproduct/pdf_1/571973.pdf'
     },
     {
       label: 'BD® OMICS-One Dual Index XT Kit B',
       catalog: '572304 - Available to Purchase Separately',
-      notes: 'This kit provides 8x i5 and 8x i7 primers from the Nextera series. Not suitable for ATAC library.',
+      notes: 'This kit provides 8x i5 and 8x i7 primers from the Nextera series. Can be used to multiplex up to 64 samples in a single run. In combination with BD® OMICS-One Dual Index XT Kit A, it can multiplex up to 128 samples in a single run. Not suitable for ATAC library.',
       volume: '300 µL',
       usage: 'The indexes can be used to multiplex up to 64 samples in a single run. In combination with BD® OMICS-One Dual Index XT Kit A, it can multiplex up to 128 samples in a single run.',
-      size: '48 tests',
+      size: '50 - 150 tests/tube',
       link: 'https://www.bdbiosciences.com/content/dam/bdb/product_assets/product_pdf/kitproduct/pdf_1/572304.pdf',
 
     },
@@ -46,7 +46,7 @@ export default function App() {
       notes: 'This kit provides 1x i5 and 4x i7 primers for cDNA applications. Not suitable for ATAC library.',
       volume: '40 µL Forward i5, 20 µL Reverse i7',
       usage: 'The indexes can be used for cDNA applications',
-      size: '1x reaction for Forward i5, 4x reaction for each Reverse i7',
+      size: '4 tests',
     },
     {
       label: 'Base ATAC Amplification Kit',
@@ -54,7 +54,7 @@ export default function App() {
       notes: 'This kit provides 1x Forward Adapter primer and 8x i7 primers for ATAC-seq applications. Suitable for ATAC library only.',
       volume: '65 µL Forward Adapter Primer, 35 µL Reverse i7',
       usage: 'The indexes can be used for ATAC-seq applications. ',
-      size: '1x reaction for Forward i5, 4x reaction for each Reverse i7',
+      size: '8 tests',
     }
   ];
 
@@ -210,7 +210,7 @@ export default function App() {
                     <td style={{ border: '1px solid #ccc', padding: '10px' }}>{tab.catalog}</td>
                     <td style={{ border: '1px solid #ccc', padding: '10px' }}>{tab.volume}</td>
                     <td style={{ border: '1px solid #ccc', padding: '10px' }}>{tab.size}</td>
-                    <td style={{ border: '1px solid #ccc', padding: '10px' }}>{tab.notes}</td>
+                    <td style={{ border: '1px solid #ccc', padding: '10px', maxWidth: '500px' }}>{tab.notes}</td>
                   </tr>
                 ))}
               </tbody>
