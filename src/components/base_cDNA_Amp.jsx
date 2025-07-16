@@ -50,7 +50,7 @@ export default function BaseCDNAAmp() {
                 <h2 style={{ color: '#007bff', marginBottom: 0 }}>
                     Base cDNA Amplification Kit
                     </h2>
-                    <p style={{ marginBottom:0 }}>The indexes can be used for cDNA applications when purchased kits listed below.</p>
+                    <p style={{ marginBottom:0 }}>The indexes can be used when purchasing the kits below: </p>
                     <ul style={{ marginTop: 0, paddingLeft: 20, marginBottom:0}}>
                         <li>BD Rhapsody™ Targeted mRNA and AbSeq Amplification Kit </li>
                         <li>BD Rhapsody™ Whole Transcriptome Analysis (WTA) Amplification Kit</li>

@@ -9,6 +9,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('BD® OMICS-One Dual Index Kit');
   const [popupMessage, setPopupMessage] = useState('');
   const [showPopup, setShowPopup] = useState(false);
+  const deployDate = import.meta.env.VITE_DEPLOY_DATE;
 
   const tabs = [
     {
@@ -17,6 +18,8 @@ export default function App() {
       notes: 'This kit provides 8x i5 and 8x i7 primers from the TruSeq series. Not suitable for ATAC library.',
       volume: '50 µL',
       usage: 'The indexes can be used to multiplex up to 64 samples in a single run.',
+      size: '80 tests',
+      link: 'https://www.bdbiosciences.com/content/dam/bdb/product_assets/product_pdf/kitproduct/pdf_1/571899.pdf',
     },
     {
       label: 'BD® OMICS-One Dual Index XT Kit A',
@@ -24,6 +27,8 @@ export default function App() {
       notes: 'This kit provides 8x i5 and 8x i7 primers from the Nextera series. Not suitable for ATAC library.',
       volume: '300 µL',
       usage: 'The indexes can be used to multiplex up to 64 samples in a single run. In combination with BD® OMICS-One Dual Index XT Kit B, it can multiplex up to 128 samples in a single run.',
+      size: '48 tests',
+      link: 'https://www.bdbiosciences.com/content/dam/bdb/product_assets/product_pdf/kitproduct/pdf_1/571973.pdf'
     },
     {
       label: 'BD® OMICS-One Dual Index XT Kit B',
@@ -31,28 +36,32 @@ export default function App() {
       notes: 'This kit provides 8x i5 and 8x i7 primers from the Nextera series. Not suitable for ATAC library.',
       volume: '300 µL',
       usage: 'The indexes can be used to multiplex up to 64 samples in a single run. In combination with BD® OMICS-One Dual Index XT Kit A, it can multiplex up to 128 samples in a single run.',
+      size: '48 tests',
+      link: 'https://www.bdbiosciences.com/content/dam/bdb/product_assets/product_pdf/kitproduct/pdf_1/572304.pdf',
 
     },
     {
-      label: 'Base Amplification Kit',
-      catalog: 'Included with BD Rhapsody&trade; assay kits',
+      label: 'BD Rhapsody™ Amplification Kits',
+      catalog: 'Included with BD Rhapsody™ assay kits',
       notes: 'This kit provides 1x i5 and 4x i7 primers for cDNA applications. Not suitable for ATAC library.',
       volume: '40 µL Forward i5, 20 µL Reverse i7',
       usage: 'The indexes can be used for cDNA applications',
+      size: '1x reaction for Forward i5, 4x reaction for each Reverse i7',
     },
     {
       label: 'Base ATAC Amplification Kit',
-      catalog: 'Included with BD Rhapsody&trade; ATAC-seq assay kits',
+      catalog: 'Included with BD Rhapsody™ ATAC-seq assay kits',
       notes: 'This kit provides 1x Forward Adapter primer and 8x i7 primers for ATAC-seq applications. Suitable for ATAC library only.',
       volume: '65 µL Forward Adapter Primer, 35 µL Reverse i7',
-      usage: 'The indexes can be used for ATAC-seq applications. '
+      usage: 'The indexes can be used for ATAC-seq applications. ',
+      size: '1x reaction for Forward i5, 4x reaction for each Reverse i7',
     }
   ];
 
   const onTabSelect = (label) => {
     let message = '';
-    if (label === 'Base Amplification Kit') {
-      message = 'Base Amplification Kit is selected. Please select i7 primers from the displayed table. ';
+    if (label === 'BD Rhapsody™ Amplification Kits') {
+      message = 'BD Rhapsody™ Amplification Kits is selected. Please select i7 primers from the displayed table. ';
     } else if (label === 'Base ATAC Amplification Kit') {
       message = 'Base ATAC-Index Kit is selected. Please select i7 primers from the displayed table.';
     } else if (label === 'BD® OMICS-One Dual Index XT Kit A') {
@@ -82,7 +91,7 @@ export default function App() {
       case 'BD® OMICS-One Dual Index Kit': return <DualIndex />;
       case 'BD® OMICS-One Dual Index XT Kit A': return <DualIndexXTA />;
       case 'BD® OMICS-One Dual Index XT Kit B': return <DualIndexXTB />;
-      case 'Base Amplification Kit': return <BaseCDNAAmp />;
+      case 'BD Rhapsody™ Amplification Kits': return <BaseCDNAAmp />;
       case 'Base ATAC Amplification Kit': return <BaseATAC />;
       default: return <div>Unknown Sequencer</div>;
     }
@@ -137,6 +146,7 @@ export default function App() {
         }}>
           <h1 style={{marginBottom:0}}> XLEAP Colour Balance Checker </h1>
           <h3> For BD Rhapsody&trade; Index Kits </h3>
+          <p>Last updated: {deployDate || 'N/A'} </p>
 
           <div style={{ display: 'flex', 
             flexDirection: 'column', 
@@ -166,12 +176,13 @@ export default function App() {
               <li>If you have any questions or need further assistance, please contact your local FAS.</li>
             </ol>
             </div>
-            <table style={{ borderCollapse: 'collapse', width: '100%', marginTop: '20px', fontSize: '14px'}}>
+            <table style={{ borderCollapse: 'collapse', width: '100%', minWidth:'900px', marginTop: '20px', fontSize: '14px'}}>
               <thead>
                 <tr>
                   <th style={{ border: '1px solid #ccc', padding: '10px', backgroundColor: '', color: '#044ED7' }}>Select Your Index Kits</th>
                   <th style={{ border: '1px solid #ccc', padding: '10px' }}>Catalog Number</th>
                   <th style={{ border: '1px solid #ccc', padding: '10px' }}>Volume Per Tube (µL)</th>
+                  <th style={{ border: '1px solid #ccc', padding: '10px' }}>Size </th>
                   <th style={{ border: '1px solid #ccc', padding: '10px' }}>Notes</th>
                 </tr>
               </thead>
@@ -198,6 +209,7 @@ export default function App() {
                     </td>
                     <td style={{ border: '1px solid #ccc', padding: '10px' }}>{tab.catalog}</td>
                     <td style={{ border: '1px solid #ccc', padding: '10px' }}>{tab.volume}</td>
+                    <td style={{ border: '1px solid #ccc', padding: '10px' }}>{tab.size}</td>
                     <td style={{ border: '1px solid #ccc', padding: '10px' }}>{tab.notes}</td>
                   </tr>
                 ))}

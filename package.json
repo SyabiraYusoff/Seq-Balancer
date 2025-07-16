@@ -9,7 +9,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "VITE_DEPLOY_DATE=$(date +%d-%m-%Y) vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
