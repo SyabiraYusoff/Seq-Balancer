@@ -18,7 +18,7 @@ export default function App() {
       notes: 'This kit provides 8x i5 and 8x i7 primers from the TruSeq series. Can be used to multiplex up to 64 samples in a single run. Not suitable for ATAC library.',
       volume: '50 µL',
       usage: 'The indexes can be used to multiplex up to 64 samples in a single run.',
-      size: '8 - 20 tests/tube',
+      size: '8 - 20 tests/tube *',
       link: 'https://www.bdbiosciences.com/content/dam/bdb/product_assets/product_pdf/kitproduct/pdf_1/571899.pdf',
     },
     {
@@ -27,7 +27,7 @@ export default function App() {
       notes: 'This kit provides 8x i5 and 8x i7 primers from the Nextera series. Can be used to multiplex up to 64 samples in a single run. In combination with BD® OMICS-One Dual Index XT Kit B, it can multiplex up to 128 samples in a single run. Not suitable for ATAC library.',
       volume: '300 µL',
       usage: 'The indexes can be used to multiplex up to 64 samples in a single run. In combination with BD® OMICS-One Dual Index XT Kit B, it can multiplex up to 128 samples in a single run.',
-      size: '50 - 150 tests/tube',
+      size: '50 - 150 tests/tube *',
       link: 'https://www.bdbiosciences.com/content/dam/bdb/product_assets/product_pdf/kitproduct/pdf_1/571973.pdf'
     },
     {
@@ -36,7 +36,7 @@ export default function App() {
       notes: 'This kit provides 8x i5 and 8x i7 primers from the Nextera series. Can be used to multiplex up to 64 samples in a single run. In combination with BD® OMICS-One Dual Index XT Kit A, it can multiplex up to 128 samples in a single run. Not suitable for ATAC library.',
       volume: '300 µL',
       usage: 'The indexes can be used to multiplex up to 64 samples in a single run. In combination with BD® OMICS-One Dual Index XT Kit A, it can multiplex up to 128 samples in a single run.',
-      size: '50 - 150 tests/tube',
+      size: '50 - 150 tests/tube *',
       link: 'https://www.bdbiosciences.com/content/dam/bdb/product_assets/product_pdf/kitproduct/pdf_1/572304.pdf',
 
     },
@@ -215,6 +215,7 @@ export default function App() {
                 ))}
               </tbody>
             </table>
+            <p><strong><sup>*</sup> Note:</strong> Depending on the assay, the reaction per tube might differ. WTA library indexing (5.0 µL/ library). For AbSeq, VDJ, SMK (2.0 µL/ library)</p>
             
           </div>
           {renderTabs()}

@@ -58,8 +58,8 @@ export default function BaseATAC() {
                     <p style={{ marginBottom:0}}><strong>Pooling Multiomics libraries together?</strong> You can enhance your workflow by integrating indexing with Omics One (available separately) or Base Amplification Kit..<br /> This option allows you to seamlessly select and analyze your desired kit alongside your base kit amplification.</p>
             <div style={{ display: 'flex', gap: 32, justifyContent: 'center', alignItems: 'flex-start', width: '100%' }}>
                     <div style={{ flex: 1 }}>
-                        <h3>i5 forward primer is not on ATAC read structure</h3>
-                        <p>Instead of i5, we are amplifying the cell label and UMI for ATAC I2 read using ATAC Forward Adapter Primer.</p>
+                        <h3>i5 Index is not read on ATAC sequencing</h3>
+                        <p>Instead of i5, the read needs to have a length of 60bp to cover the Cell Label and UMI on sequencing configuration.</p>
                         <img src={ATACimg} alt="ATAC Index" style={{ width: '100%', marginBottom: 16 }} />
                     </div>
                     <div style={{ flex: 1 }}>
