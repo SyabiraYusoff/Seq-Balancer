@@ -219,6 +219,13 @@ export default function App() {
             
           </div>
           {renderTabs()}
+          <iframe width="100%" 
+          height="480"
+          src="https://forms.office.com/Pages/ResponsePage.aspx?id=fObDlC2eAEimt2Ndl4ghZdbP3rXs1MlBqgcjSqm_1-VUMzA4UUhZQ0ZBMFk3SUg0OUFBSFRFSUNOSS4u&embed=true"
+          style={{ border: 'none', maxWidth: '100%', maxHeight: '100vh', marginTop: '20px' }}
+          allowFullScreen
+          title="Feedback Form"
+          />
         </div>
       </div>
     </>
