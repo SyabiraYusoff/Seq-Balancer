@@ -55,7 +55,16 @@ export default function BaseCDNAAmp() {
                         <li>BD Rhapsody™ Targeted mRNA and AbSeq Amplification Kit </li>
                         <li>BD Rhapsody™ Whole Transcriptome Analysis (WTA) Amplification Kit</li>
                     </ul>
-                    <p style={{ marginBottom:0 }}> For <strong>2-plexy indexing, </strong> Please first select one of the i7 Reverse Index Primer: RP2, RP3, RP4, the next compatible primer will be <span style={{color: 'green'}}>highlighted</span>.</p>
+
+                    <p style={{ marginBottom:0 }}>  <strong>We have successfully tested these combinations:</strong>
+                        <ul>
+                            <li><strong>2-plex</strong>: N710/N707</li>
+                            <li><strong>3-plex</strong>: N709/N710/N707 </li>
+                            <li><strong>4-plex</strong>: N709/N710/N707/N705</li>
+                            <li><strong>5-plex</strong>: N704/N705/N707/N709/N710</li>
+                        </ul>
+                        Note that N704,N705 and N707 can be obtained from the BD OMICS-One XT Dual Index Kit A(Cat. No. 571973).<br/>Alternatively, these primers can be purchased externally through IDT (please find the details <a href="https://www.bdbiosciences.com/content/dam/bdb/marketing-documents/BD_Ordering_Additional_Indexes%20_Rhapsody_Tech_Bulletin.pdf">here</a>).</p>
+                    <p style={{ marginBottom:0 }}> For <strong> other than above index combination, </strong> Please first select one of the i7 Reverse Index Primer: RP2, RP3, RP4, the next compatible primer will be <span style={{color: 'green'}}>highlighted</span>.</p>
                     <p style={{ marginBottom:0}}><strong>Need to pool a larger number of libraries?</strong> You can enhance your workflow by integrating indexing with Omics One (available separately).<br /> This option allows you to seamlessly select and analyze your desired kit alongside your base kit amplification.</p>
             <div style={{ display: 'flex', gap: 32, justifyContent: 'center', alignItems: 'flex-start', width: '100%' }}>
                     <div style={{ flex: 1 }}>
