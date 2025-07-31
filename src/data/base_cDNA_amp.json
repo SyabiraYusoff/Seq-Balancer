@@ -3,9 +3,9 @@
     { "id": "FP1", "sequence": "TATAGCCT", "name": "TruSeq D501" }
   ],
   "i7": [
-    { "id": "RP1", "sequence": "AGCGTAGC", "name": "Nextera N709" },
-    { "id": "RP2", "sequence": "CAGCCTCG", "name": "Nextera N710" },
-    { "id": "RP3", "sequence": "TGCCTCTT", "name": "Nextera N711" },
-    { "id": "RP4", "sequence": "TCCTCTAC", "name": "Nextera N712" }
+    { "id": "RP1", "sequence": "GCTACGCT", "name": "Nextera N709" },
+    { "id": "RP2", "sequence": "CGAGGCTG", "name": "Nextera N710" },
+    { "id": "RP3", "sequence": "AAGAGGCA", "name": "Nextera N711" },
+    { "id": "RP4", "sequence": "GTAGAGGA", "name": "Nextera N712" }
   ]
 }
